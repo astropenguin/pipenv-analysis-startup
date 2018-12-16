@@ -43,12 +43,24 @@ See `ipython kernel install --help` for more details.
 
 ## An example: Pipenv custom script
 
-The setup described above can be automated by creating a script and runnning by Pipenv's custom script.
-This repository has etc/configure as the script and you can run it like:
+The setup described above can be automated by creating a script and runnning it from Pipenv's custom script.
+As an example, this repository has etc/configure as the script.
+You can run it to configure like:
 
 ```shell
 $ git clone https://github.com/astropenguin/pipenv-ipython-jupyter.git
 $ cd pipenv-ipython-jupyter
 $ pipenv install
 $ pipenv run configure
+```
+
+If you use git, remember to add .ipython to your .gitignore.
+You may still track some files by configuring it like:
+
+```
+# tracking only config and startup files.
+/.ipython/profile_default/*
+!/.ipython/profile_default/startup
+!/.ipython/profile_default/ipython_config.py
+!/.ipython/profile_default/ipython_kernel_config.py
 ```
