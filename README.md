@@ -58,7 +58,7 @@ If you use git, remember to add .ipython to your .gitignore.
 You may still track some files by configuring it like:
 
 ```
-# tracking only config and startup files.
+# .gitignore for tracking only configs and startup
 /.ipython/profile_default/*
 !/.ipython/profile_default/startup
 !/.ipython/profile_default/ipython_config.py
