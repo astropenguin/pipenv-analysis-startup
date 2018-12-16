@@ -1,7 +1,7 @@
 # pipenv-ipython-jupyter
-:penguin: IPython and Jupyter configs' management in a Python-Pipenv
+:penguin: Demo of IPython and Jupyter configs' management in a Python-pipenv
 
-This repository demonstrates how to manage a IPython profile and a Jupyter kernel in a Python virtual environment made by Pipenv.
+This repository demonstrates how to manage a IPython profile and a Jupyter kernel in a Python virtual environment created by [pipenv](https://pipenv.readthedocs.io/en/latest/).
 
 ## How to setup
 
@@ -26,7 +26,7 @@ $ pipenv shell
 ```
 
 IPython profile (profile_default) is installed under ./.ipython directory.
-This is because it uses the `IPYTHONDIR` environment variable.
+This is because [pipenv uses the `IPYTHONDIR` environment variable](https://pipenv.readthedocs.io/en/latest/advanced/#automatic-loading-of-env).
 See `ipython profile create --help` for more details.
 
 ### Create a Jupyter kernel
@@ -41,9 +41,9 @@ The option `--sys-prefix` is essential to install it in the environment.
 It uses the IPython profile created above as a kernel's profile.
 See `ipython kernel install --help` for more details.
 
-## An example: Pipenv custom script
+## An example: pipenv custom script
 
-The setup described above can be automated by creating a script and runnning it from Pipenv's custom script.
+The setup described above can be automated by creating a script and runnning it from [pipenv's custom script](https://pipenv.readthedocs.io/en/latest/advanced/#custom-script-shortcuts).
 As an example, this repository has etc/configure as the script.
 You can run it to configure like:
 
@@ -64,3 +64,10 @@ You may still track some files by configuring it like:
 !/.ipython/profile_default/ipython_config.py
 !/.ipython/profile_default/ipython_kernel_config.py
 ```
+
+## References
+
++ [Overview of the IPython configuration system — IPython documentation](https://ipython.readthedocs.io/en/stable/development/config.html)
++ [Installing the IPython kernel -- IPython documentation](https://ipython.readthedocs.io/en/stable/install/kernel_install.html)
++ [Custom Script Shortcuts — pipenv documentation](https://pipenv.readthedocs.io/en/latest/advanced/#custom-script-shortcuts)
++ [Automatic Loading of .env -- pipenv documentation](https://pipenv.readthedocs.io/en/latest/advanced/#automatic-loading-of-env)
