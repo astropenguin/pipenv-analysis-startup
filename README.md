@@ -50,7 +50,6 @@ You can run it to configure like:
 ```shell
 $ git clone https://github.com/astropenguin/pipenv-ipython-jupyter.git
 $ cd pipenv-ipython-jupyter
-$ echo 'IPYTHONDIR=.ipython' >> .env
 $ pipenv install
 $ pipenv run configure
 ```
