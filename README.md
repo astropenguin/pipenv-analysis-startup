@@ -1,7 +1,7 @@
 # pipenv-ipython-jupyter
-:penguin: Demo of IPython and Jupyter configs' management in a Python-pipenv
+:penguin: Demo of IPython/Jupyter custom config management by Python-pipenv
 
-This repository demonstrates how to manage a IPython profile and a Jupyter kernel in a Python virtual environment created by [pipenv](https://pipenv.readthedocs.io/en/latest/).
+This repository demonstrates how to manage user-defined IPython profile and Jupyter kernel in a Python virtual environment created by [pipenv](https://pipenv.readthedocs.io/en/latest/).
 
 ## How to setup
 
