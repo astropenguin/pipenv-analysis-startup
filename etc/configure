@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# Write an environment variable to .env
+# Write environment variables to .env
+PYTHONPATH=`pwd`
 IPYTHONDIR=`pwd`/.ipython
+echo PYTHONPATH=${PYTHONPATH} >> .env
 echo IPYTHONDIR=${IPYTHONDIR} >> .env
 
 # Create IPython profile
