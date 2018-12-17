@@ -11,11 +11,11 @@ This repository demonstrates how to manage user-defined IPython profile and Jupy
 $ mkdir env && cd env
 $ pipenv --python 3
 $ pipenv install ipython jupyter
-$ echo 'IPYTHONDIR=.ipython' >> .env
+$ echo IPYTHONDIR=`pwd`/.ipython >> .env
 ```
 
 First of all, create an environment by Pipenv and install Ipython and Jupyter.
-Then set up an environment variable `IPYTHONDIR=.ipython` in the .env file.
+Then set up an environment variable `IPYTHONDIR=/path/to/env/.ipython` in the .env file.
 
 ### Create an IPython profile
 
