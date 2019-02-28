@@ -1,15 +1,36 @@
 #!/bin/bash
 
+PROJ=`pipenv --where`
+
 # Write environment variables to .env
-PYTHONPATH=`pwd`
-IPYTHONDIR=`pwd`/.ipython
-echo PYTHONPATH=${PYTHONPATH} >> .env
-echo IPYTHONDIR=${IPYTHONDIR} >> .env
+echo PYTHONPATH=${PROJ} >> .env
+echo IPYTHONDIR=${PROJ}/.ipython >> .env
+echo MATPLOTLIBRC=${PROJ}/.matplotlib >> .env
+echo MPLCONFIGDIR=${PROJ}/.matplotlib >> .env
+export $(grep -v '^#' .env | xargs)
 
 # Create IPython profile
-export IPYTHONDIR=${IPYTHONDIR}
-mkdir -p .ipython
-ipython profile create default
+mkdir -p ${IPYTHONDIR}
+ipython profile create default --ipython-dir ${IPYTHONDIR}
 
 # Create Jupyter kernel
 ipython kernel install --sys-prefix --profile default --display-name Default
+
+# Create IPython startup
+cat << EOS > ${IPYTHONDIR}/profile_default/startup/00.py
+# from standard library
+import re
+import os
+import sys
+import time
+from pathlib import Path
+from datetime import datetime
+
+# from dependent packages
+import numpy as np
+import matplotlib.pyplot as plt
+EOS
+
+# Create matplotlibrc
+mkdir -p ${MATPLOTLIBRC}
+touch ${MATPLOTLIBRC}/matplotlibrc
