@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 ipython = "*"
 jupyter = "*"
+numpy = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.6"
