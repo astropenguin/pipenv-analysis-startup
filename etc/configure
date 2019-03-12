@@ -1,36 +1,46 @@
 #!/bin/bash
 
+# Full path of the project
 PROJ=`pipenv --where`
 
 # Write environment variables to .env
-echo PYTHONPATH=${PROJ} >> .env
-echo IPYTHONDIR=${PROJ}/.ipython >> .env
-echo MATPLOTLIBRC=${PROJ}/.matplotlib >> .env
-echo MPLCONFIGDIR=${PROJ}/.matplotlib >> .env
+cat << EOS >> .env
+PYTHONPATH=${PROJ}
+IPYTHONDIR=${PROJ}/.ipython
+MATPLOTLIBRC=${PROJ}/.matplotlib
+MPLCONFIGDIR=${PROJ}/.matplotlib
+EOS
+
+# Load environment variables
 export $(grep -v '^#' .env | xargs)
 
-# Create IPython profile
+# Create directories and files
 mkdir -p ${IPYTHONDIR}
-ipython profile create default --ipython-dir ${IPYTHONDIR}
+mkdir -p ${MATPLOTLIBRC}
+mkdir -p ${MPLCONFIGDIR}/stylelib
+touch ${MATPLOTLIBRC}/matplotlibrc
 
-# Create Jupyter kernel
-ipython kernel install --sys-prefix --profile default --display-name Default
+# Create IPython profile and Jupyter kernel
+IPYPROFILE=default
+ipython profile create ${IPYPROFILE} --ipython-dir ${IPYTHONDIR}
+ipython kernel install --sys-prefix --profile ${IPYPROFILE} --display-name ${IPYPROFILE}
 
-# Create IPython startup
-cat << EOS > ${IPYTHONDIR}/profile_default/startup/00.py
-# from standard library
-import re
+# Create an IPython startup script
+cat << EOS > ${IPYTHONDIR}/profile_${IPYPROFILE}/startup/00.py
 import os
+import re
 import sys
 import time
 from pathlib import Path
 from datetime import datetime
+from collections import OrderedDict
 
-# from dependent packages
 import numpy as np
 import matplotlib.pyplot as plt
 EOS
 
-# Create matplotlibrc
-mkdir -p ${MATPLOTLIBRC}
-touch ${MATPLOTLIBRC}/matplotlibrc
+# Create a matplotlib style for the project
+cat << EOS > ${MPLCONFIGDIR}/stylelib/project.mpl
+figure.figsize: 15, 5
+image.cmap: viridis
+EOS
