@@ -1,69 +1,24 @@
-# pipenv-ipython-jupyter
-:penguin: Demo of IPython/Jupyter custom config management by Python-pipenv
+# pipenv-startup-analysis
+:penguin: Pipenv's management of IPython/Jupyter/matplotlib custom configs for startup of data analysis.
 
-This repository demonstrates how to manage user-defined IPython profile and Jupyter kernel in a Python virtual environment created by [pipenv](https://pipenv.readthedocs.io/en/latest/).
+This repository demonstrates how to manage custom IPython profile, Jupyter kernel, and matplotlib rc/style in a Python virtual environment created by [pipenv](https://pipenv.readthedocs.io/en/latest/), which will be useful to startup a Python data analysis.
 
-## How to setup
-
-### Create an environment
+## Usage
 
 ```shell
-$ mkdir env && cd env
-$ pipenv --python 3
-$ pipenv install ipython jupyter
-$ echo IPYTHONDIR=`pwd`/.ipython >> .env
-```
-
-First of all, create an environment by Pipenv and install Ipython and Jupyter.
-Then set up an environment variable `IPYTHONDIR=/path/to/env/.ipython` in the .env file.
-
-### Create an IPython profile
-
-```shell
-$ pipenv shell
-(env) $ mkdir -p .ipython
-(env) $ ipython profile create default
-```
-
-IPython profile (profile_default) is installed under ./.ipython directory.
-This is because [pipenv uses the `IPYTHONDIR` environment variable](https://pipenv.readthedocs.io/en/latest/advanced/#automatic-loading-of-env).
-See `ipython profile create --help` for more details.
-
-### Create a Jupyter kernel
-
-```shell
-$ pipenv shell
-(env) $ ipython kernel install --sys-prefix --profile default --display-name Default
-```
-
-Jupyter kernel (python3) is installed under ./.venv/share/jupyter/kernels directory.
-The option `--sys-prefix` is essential to install it in the environment.
-It uses the IPython profile created above as a kernel's profile.
-See `ipython kernel install --help` for more details.
-
-## An example: pipenv custom script
-
-The setup described above can be automated by creating a script and runnning it from [pipenv's custom script](https://pipenv.readthedocs.io/en/latest/advanced/#custom-script-shortcuts).
-As an example, this repository has etc/configure as the script.
-You can run it to configure like:
-
-```shell
-$ git clone https://github.com/astropenguin/pipenv-ipython-jupyter.git
-$ cd pipenv-ipython-jupyter
+$ git clone https://github.com/astropenguin/pipenv-startup-analysis.git
+$ cd pipenv-startup-analysis
 $ pipenv install
 $ pipenv run configure
 ```
 
-If you use git, remember to add .ipython to your .gitignore.
-You may still track some files by configuring it like:
+## How configs are managed
 
-```
-# .gitignore for tracking only configs and startup
-/.ipython/profile_default/*
-!/.ipython/profile_default/startup
-!/.ipython/profile_default/ipython_config.py
-!/.ipython/profile_default/ipython_kernel_config.py
-```
+### IPython
+
+### Jupyter
+
+### matplotlib
 
 ## References
 
