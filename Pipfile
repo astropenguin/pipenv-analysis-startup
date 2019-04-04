@@ -9,6 +9,7 @@ verify_ssl = true
 ipython = "*"
 jupyter = "*"
 numpy = "*"
+pandas = "*"
 matplotlib = "*"
 
 [requires]
@@ -16,5 +17,4 @@ python_version = "3.6"
 
 [scripts]
 ipython = "ipython"
-jupyter = "jupyter notebook ${HOME}"
-configure = "etc/configure"
+jupyter = "jupyter notebook"
