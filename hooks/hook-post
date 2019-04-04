@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eu
+
+# IPython startup
+cat << EOS > .ipython/profile_default/startup/00.py
+import numpy as np
+import matplotlib.pyplot as plt
+EOS
+
+# matplotlib style
+cat << EOS > .matplotlib/stylelib/custom.mpl
+figure.figsize: 15, 5
+image.cmap: viridis
+EOS
