@@ -1,24 +1,16 @@
-# pipenv-startup-analysis
-:penguin: Pipenv's management of IPython/Jupyter/matplotlib custom configs for startup of data analysis.
+# pipenv-analysis-startup
+:penguin: Example of managing IPython, Jupyter, matplotlib custom configs in a Pipenv's environment
 
-This repository demonstrates how to manage custom IPython profile, Jupyter kernel, and matplotlib rc/style in a Python virtual environment created by [pipenv](https://pipenv.readthedocs.io/en/latest/), which will be useful to startup a Python data analysis.
+This repository demonstrates how to manage custom IPython profile, Jupyter kernel, and matplotlib rc/style in a [pipenv](https://pipenv.readthedocs.io/en/latest/)'s environment using [pipenv-analysis-configs](https://github.com/astropenguin/pipenv-analysis-configs).
 
 ## Usage
 
 ```shell
-$ git clone https://github.com/astropenguin/pipenv-startup-analysis.git
-$ cd pipenv-startup-analysis
+$ git clone https://github.com/astropenguin/pipenv-analysis-startup.git
+$ cd pipenv-analysis-startup
 $ pipenv install
-$ pipenv run configure
+$ etc/configure
 ```
-
-## How configs are managed
-
-### IPython
-
-### Jupyter
-
-### matplotlib
 
 ## References
 
