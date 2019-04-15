@@ -13,7 +13,7 @@ pandas = "*"
 matplotlib = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
 
 [scripts]
 ipython = "ipython"
